@@ -5,29 +5,38 @@
         {
             "type": "board-esp32-c6-devkitc-1",
             "id": "esp",
-            "top": 0.59,
-            "left": 0.67,
+            "top": -28.8,
+            "left": -4.76,
             "attrs": {
-                "flashSize": "16"
+                "flashSize": "16",
+                "builder": "rust-nostd-esp"
             }
+        },
+        {
+            "type": "wokwi-resistor",
+            "id": "r1",
+            "top": 109.55,
+            "left": 115.2,
+            "attrs": { "value": "1000" }
+        },
+        {
+            "type": "wokwi-led",
+            "id": "led1",
+            "top": 15.6,
+            "left": 157.4,
+            "attrs": { "color": "red", "flip": "" }
         }
     ],
     "connections": [
-        [
-            "esp:TX",
-            "$serialMonitor:RX",
-            "",
-            []
-        ],
-        [
-            "esp:RX",
-            "$serialMonitor:TX",
-            "",
-            []
-        ]
+        [ "esp:TX", "$serialMonitor:RX", "", [] ],
+        [ "esp:RX", "$serialMonitor:TX", "", [] ],
+        [ "esp:GND.3", "led1:C", "black", [ "h76.8", "v-9.6" ] ],
+        [ "led1:A", "r1:2", "green", [ "v0" ] ],
+        [ "esp:4", "r1:1", "green", [ "h0" ] ]
     ],
     "serialMonitor": {
         "display": "terminal",
         "convertEol": true
-    }
+    },
+    "dependencies": {}
 }
