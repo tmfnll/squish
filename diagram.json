@@ -1,42 +1,116 @@
 {
-    "version": 1,
-    "editor": "wokwi",
-    "parts": [
-        {
-            "type": "board-esp32-c6-devkitc-1",
-            "id": "esp",
-            "top": -28.8,
-            "left": -4.76,
-            "attrs": {
-                "flashSize": "16",
-                "builder": "rust-nostd-esp"
-            }
-        },
-        {
-            "type": "wokwi-resistor",
-            "id": "r1",
-            "top": 109.55,
-            "left": 115.2,
-            "attrs": { "value": "1000" }
-        },
-        {
-            "type": "wokwi-led",
-            "id": "led1",
-            "top": 15.6,
-            "left": 157.4,
-            "attrs": { "color": "red", "flip": "" }
-        }
-    ],
-    "connections": [
-        [ "esp:TX", "$serialMonitor:RX", "", [] ],
-        [ "esp:RX", "$serialMonitor:TX", "", [] ],
-        [ "esp:GND.3", "led1:C", "black", [ "h76.8", "v-9.6" ] ],
-        [ "led1:A", "r1:2", "green", [ "v0" ] ],
-        [ "esp:4", "r1:1", "green", [ "h0" ] ]
-    ],
-    "serialMonitor": {
-        "display": "terminal",
-        "convertEol": true
+  "version": 1,
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-c6-devkitc-1",
+      "id": "esp",
+      "top": -33.11,
+      "left": -5.48,
+      "attrs": {
+        "flashSize": "16",
+        "builder": "rust-nostd-esp"
+      }
     },
-    "dependencies": {}
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -24.85,
+      "left": -124.8,
+      "attrs": {
+        "value": "1000"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -147.6,
+      "left": -73,
+      "attrs": {
+        "color": "red",
+        "flip": ""
+      }
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "pot1",
+      "top": -273.4,
+      "left": -385,
+      "attrs": {
+        "travelLength": "300"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "esp:TX",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "esp:RX",
+      "$serialMonitor:TX",
+      "",
+      []
+    ],
+    [
+      "led1:A",
+      "r1:2",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:4",
+      "r1:1",
+      "green",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "pot1:SIG",
+      "esp:5",
+      "green",
+      [
+        "h28.8",
+        "v210.4"
+      ]
+    ],
+    [
+      "pot1:VCC",
+      "esp:5V",
+      "red",
+      [
+        "h-28.8",
+        "v316.8"
+      ]
+    ],
+    [
+      "led1:C",
+      "esp:GND.4",
+      "green",
+      [
+        "v9.6",
+        "h-38",
+        "v-57.6",
+        "h182.4"
+      ]
+    ],
+    [
+      "esp:GND.3",
+      "pot1:GND",
+      "black",
+      [
+        "h0"
+      ]
+    ]
+  ],
+  "serialMonitor": {
+    "display": "terminal",
+    "convertEol": true
+  },
+  "dependencies": {}
 }
