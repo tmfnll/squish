@@ -39,6 +39,14 @@
       "attrs": {
         "travelLength": "300"
       }
+    },
+    {
+      "type": "wokwi-microsd-card",
+      "id": "sd1",
+      "top": 18.77,
+      "left": 138.73,
+      "rotate": 180,
+      "attrs": {}
     }
   ],
   "connections": [
@@ -105,6 +113,61 @@
       "black",
       [
         "h0"
+      ]
+    ],
+    [
+      "esp:23",
+      "sd1:DI",
+      "green",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "esp:19",
+      "sd1:DO",
+      "green",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "sd1:SCK",
+      "esp:18",
+      "green",
+      [
+        "h-28.8",
+        "v28.81"
+      ]
+    ],
+    [
+      "sd1:GND",
+      "esp:GND.3",
+      "black",
+      [
+        "h-19.2",
+        "v38.29"
+      ]
+    ],
+    [
+      "sd1:CS",
+      "esp:6",
+      "green",
+      [
+        "h-28.8",
+        "v-86.46",
+        "h-134.4",
+        "v96"
+      ]
+    ],
+    [
+      "sd1:VCC",
+      "esp:3V3",
+      "red",
+      [
+        "h-19.2",
+        "v-115.34",
+        "h-124.8"
       ]
     ]
   ],
