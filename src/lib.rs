@@ -7,12 +7,12 @@ use esp_hal::peripheral::Peripheral;
 use esp_hal::Blocking;
 use nb::block;
 
-pub struct LinearPotentiometer<'a, ADCI, PIN> {
+pub struct AnalogInput<'a, ADCI, PIN> {
     adc_pin: AdcPin<PIN, ADCI>,
     adc: Adc<'a, ADCI, Blocking>,
 }
 
-impl<'a, ADCI, PIN> LinearPotentiometer<'a, ADCI, PIN>
+impl<'a, ADCI, PIN> AnalogInput<'a, ADCI, PIN>
 where
     PIN: AdcChannel + AnalogPin,
     ADCI: RegisterAccess + 'a,

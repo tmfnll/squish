@@ -12,7 +12,7 @@ use esp_hal::{
     main,
 };
 use log::info;
-use squish::LinearPotentiometer;
+use squish::AnalogInput;
 
 #[main]
 fn main() -> ! {
@@ -22,7 +22,7 @@ fn main() -> ! {
 
     let mut led = Output::new(peripherals.GPIO4, Level::High, OutputConfig::default());
 
-    let mut potentiometer = LinearPotentiometer::new(peripherals.GPIO5, peripherals.ADC1);
+    let mut potentiometer = AnalogInput::new(peripherals.GPIO5, peripherals.ADC1);
 
     let delay = Delay::new();
 
